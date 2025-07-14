@@ -4,17 +4,15 @@ namespace Core
 {
     public class FishingController : MonoBehaviour
     {
-        public FishingInput input;
-
         private FishingStateBase currentState;
 
         public FishingActions Actions;
+        public FishingInput input;  // Добавляем сюда
 
         private void Start()
         {
             Actions.Initialize(this);
-
-            SetState(new IdleState(this, Actions));
+            SetState(new IdleState(this, Actions, input));
         }
 
         private void Update()

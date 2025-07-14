@@ -5,7 +5,8 @@ namespace Core
 {
     public class BiteState : FishingStateBase
     {
-        public BiteState(FishingController controller, FishingActions actions) : base(controller, actions) {}
+        public BiteState(FishingController controller, FishingActions actions, FishingInput input) 
+            : base(controller, actions, input) { }
 
         public override void Enter()
         {
@@ -19,9 +20,9 @@ namespace Core
 
             while (timer < waitTime)
             {
-                if (Input.GetMouseButtonDown(0)) // ЛКМ = подсечка
+                if (input.IsCatchPressed) // Используем input здесь
                 {
-                    controller.SetState(new MinigameState(controller, actions));
+                    controller.SetState(new MinigameState(controller, actions, input));
                     yield break;
                 }
 
@@ -29,7 +30,7 @@ namespace Core
                 yield return null;
             }
 
-            controller.SetState(new ResultState(controller, actions, success: false));
+            controller.SetState(new ResultState(controller, actions, false, input));
         }
     }
 }

@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections;
 
-
 namespace Core
 {
     public class CastingState : FishingStateBase
     {
-        public CastingState(FishingController controller, FishingActions actions) : base(controller, actions) {}
+        public CastingState(FishingController controller, FishingActions actions, FishingInput input) 
+            : base(controller, actions, input) { }
 
         public override void Enter()
         {
@@ -17,7 +17,7 @@ namespace Core
         private IEnumerator CastingDelay()
         {
             yield return new WaitForSeconds(1.5f);
-            controller.SetState(new WaitingState(controller, actions));
+            controller.SetState(new WaitingState(controller, actions, input));
         }
     }
 }

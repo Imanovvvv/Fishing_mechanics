@@ -1,11 +1,11 @@
 using UnityEngine;
 
-
 namespace Core
 {
     public class WaitingState : FishingStateBase
     {
-        public WaitingState(FishingController controller, FishingActions actions) : base(controller, actions) {}
+        public WaitingState(FishingController controller, FishingActions actions, FishingInput input) 
+            : base(controller, actions, input) { }
 
         public override void Enter()
         {
@@ -19,7 +19,7 @@ namespace Core
 
         private void OnBite()
         {
-            controller.SetState(new BiteState(controller, actions));
+            controller.SetState(new BiteState(controller, actions, input));
         }
     }
 }

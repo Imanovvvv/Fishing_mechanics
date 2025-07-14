@@ -5,7 +5,8 @@ namespace Core
 {
     public class MinigameState : FishingStateBase
     {
-        public MinigameState(FishingController controller, FishingActions actions) : base(controller, actions) {}
+        public MinigameState(FishingController controller, FishingActions actions, FishingInput input) 
+            : base(controller, actions, input) { }
 
         public override void Enter()
         {
@@ -23,8 +24,8 @@ namespace Core
                 yield return null;
             }
 
-            bool isSuccess = true; // Здесь можно вставить логику успеха
-            controller.SetState(new ResultState(controller, actions, isSuccess));
+            bool isSuccess = true; // Можно потом сделать логику успеха с input
+            controller.SetState(new ResultState(controller, actions, isSuccess, input));
         }
     }
 }

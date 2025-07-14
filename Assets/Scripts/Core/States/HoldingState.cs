@@ -1,18 +1,16 @@
-
 namespace Core
 {
     public class HoldingState : FishingStateBase
     {
-        public HoldingState(FishingController controller, FishingActions actions) : base(controller, actions) { }
-
-        public override void Enter()
-        {
-            // Держим поплавок в руке
-        }
+        public HoldingState(FishingController controller, FishingActions actions, FishingInput input) 
+            : base(controller, actions, input) { }
 
         public override void Update()
         {
-            // Ожидаем заброса (ПКМ) -> переход в CastingState
+            if (input.IsCastPressed)
+            {
+                controller.SetState(new CastingState(controller, actions, input));
+            }
         }
     }
 }

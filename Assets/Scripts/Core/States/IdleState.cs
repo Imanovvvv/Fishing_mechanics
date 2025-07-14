@@ -1,10 +1,9 @@
-
 namespace Core
-
 {
     public class IdleState : FishingStateBase
     {
-        public IdleState(FishingController controller, FishingActions actions) : base(controller, actions) { }
+        public IdleState(FishingController controller, FishingActions actions, FishingInput input) 
+            : base(controller, actions, input) { }
 
         public override void Enter()
         {
@@ -13,7 +12,10 @@ namespace Core
 
         public override void Update()
         {
-            // Переход в HoldingState выполняется через Input, подписку можно реализовать через события
+            if (input.IsCastPressed)
+            {
+                controller.SetState(new CastingState(controller, actions, input));
+            }
         }
     }
 }

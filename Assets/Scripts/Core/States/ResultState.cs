@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 namespace Core
@@ -7,7 +6,8 @@ namespace Core
     {
         private readonly bool success;
 
-        public ResultState(FishingController controller, FishingActions actions, bool success) : base(controller, actions)
+        public ResultState(FishingController controller, FishingActions actions, bool success, FishingInput input) 
+            : base(controller, actions, input)
         {
             this.success = success;
         }
@@ -20,7 +20,7 @@ namespace Core
                 FishingEvents.RaiseOnCatchFail();
 
             actions.ReturnFloat();
-            controller.SetState(new IdleState(controller, actions));
+            controller.SetState(new IdleState(controller, actions, input));
         }
     }
 }
