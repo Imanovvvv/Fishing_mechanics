@@ -18,8 +18,10 @@ namespace Core
 
         public void Cast()
         {
+            Debug.Log("Cast called");
             floatController.MoveToWater();
             FishingEvents.RaiseOnCast();
+            
         }
 
         public void ReturnFloat()

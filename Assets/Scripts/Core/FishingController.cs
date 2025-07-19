@@ -18,6 +18,8 @@ namespace Core
         private void Update()
         {
             currentState?.Update();
+            if (input.IsCastPressed)
+                Debug.Log("ПКМ нажата");
         }
 
         public void SetState(FishingStateBase newState)
