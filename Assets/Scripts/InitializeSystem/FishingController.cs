@@ -2,7 +2,7 @@ using BiteSystem;
 using FishingStatesSystem;
 using InputHandlerSystem;
 using Minigame;
-using Settings;
+using ProjectSerializebleDataObjects;
 using UnityEngine;
 
 namespace InitializeSystem
@@ -11,14 +11,15 @@ namespace InitializeSystem
     {
         public FishingActions Actions;
         public FishingMinigameController MinigameController;
-        public BiteController BiteController;
         public FishingSettings FishingSettings;
         
+        private BiteController _biteController;
         private StatesController _stateController;
 
         private void Start()
         {
-            _stateController = new StatesController(MinigameController, BiteController);
+            _biteController = new BiteController();
+            _stateController = new StatesController(MinigameController, _biteController, FishingSettings);
             Actions.Initialize(this);
             _stateController.SetState(new IdleState(_stateController, Actions, FishingSettings));
         }

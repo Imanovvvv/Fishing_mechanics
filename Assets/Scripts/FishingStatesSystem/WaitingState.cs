@@ -1,6 +1,6 @@
 using Events;
 using InitializeSystem;
-using Settings;
+using ProjectSerializebleDataObjects;
 
 namespace FishingStatesSystem
 {

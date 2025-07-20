@@ -1,7 +1,7 @@
 using System.Collections;
 using InitializeSystem;
 using InputHandlerSystem;
-using Settings;
+using ProjectSerializebleDataObjects;
 using UnityEngine;
 
 namespace FishingStatesSystem
