@@ -1,3 +1,4 @@
+using Core.States;
 using UnityEngine;
 
 namespace Core
@@ -6,7 +7,7 @@ namespace Core
     {
         private readonly bool success;
 
-        public ResultState(FishingController controller, FishingActions actions, bool success, FishingInput input) 
+        public ResultState(StatesController controller, FishingActions actions, bool success, FishingInput input) 
             : base(controller, actions, input)
         {
             this.success = success;
@@ -14,6 +15,7 @@ namespace Core
 
         public override void Enter()
         {
+            controller.StopMinigame();
             if (success)
                 FishingEvents.RaiseOnCatchSuccess();
             else

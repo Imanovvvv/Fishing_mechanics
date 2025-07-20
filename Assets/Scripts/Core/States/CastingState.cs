@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using Core.States;
 
 namespace Core
 {
     public class CastingState : FishingStateBase
     {
-        public CastingState(FishingController controller, FishingActions actions, FishingInput input) 
+        public CastingState(StatesController controller, FishingActions actions, FishingInput input) 
             : base(controller, actions, input) { }
 
         public override void Enter()

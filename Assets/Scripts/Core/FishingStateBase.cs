@@ -1,12 +1,14 @@
+using Core.States;
+
 namespace Core
 {
     public abstract class FishingStateBase
     {
-        protected FishingController controller;
+        protected StatesController controller;
         protected FishingActions actions;
         protected FishingInput input;  // Добавляем ссылку на input
 
-        protected FishingStateBase(FishingController controller, FishingActions actions, FishingInput input)
+        protected FishingStateBase(StatesController controller, FishingActions actions, FishingInput input)
         {
             this.controller = controller;
             this.actions = actions;

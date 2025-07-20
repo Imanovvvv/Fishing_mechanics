@@ -21,7 +21,6 @@ namespace Core
             Debug.Log("Cast called");
             floatController.MoveToWater();
             FishingEvents.RaiseOnCast();
-            
         }
 
         public void ReturnFloat()

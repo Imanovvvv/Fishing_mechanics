@@ -1,15 +1,17 @@
 using UnityEngine;
 using System.Collections;
+using Core.States;
 
 namespace Core
 {
     public class MinigameState : FishingStateBase
     {
-        public MinigameState(FishingController controller, FishingActions actions, FishingInput input) 
+        public MinigameState(StatesController controller, FishingActions actions, FishingInput input) 
             : base(controller, actions, input) { }
 
         public override void Enter()
         {
+            controller.StartMinigame();
             actions.StartCoroutine(PlayMinigame());
         }
 

@@ -1,8 +1,10 @@
+using Core.States;
+
 namespace Core
 {
     public class IdleState : FishingStateBase
     {
-        public IdleState(FishingController controller, FishingActions actions, FishingInput input) 
+        public IdleState(StatesController controller, FishingActions actions, FishingInput input) 
             : base(controller, actions, input) { }
 
         public override void Enter()
