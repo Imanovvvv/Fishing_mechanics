@@ -941,8 +941,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Actions: {fileID: 593897616}
   input: {fileID: 620766005}
-  Minigame: {fileID: 0}
-  BiteSystem: {fileID: 0}
+  Minigame: {fileID: 1046708976}
+  BiteSystem: {fileID: 1775825760}
 --- !u!4 &912560656
 Transform:
   m_ObjectHideFlags: 0

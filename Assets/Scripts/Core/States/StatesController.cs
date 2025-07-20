@@ -12,6 +12,7 @@ namespace Core.States
         {
             _fishingMinigame = minigame;
             _biteSystem = biteSystem;
+            _fishingMinigame.StopMinigame();
         }
         
         public void StartMinigame()
