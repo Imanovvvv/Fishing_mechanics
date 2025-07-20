@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Settings
+namespace ProjectSerializebleDataObjects
 {
     [CreateAssetMenu(menuName = "Fishing/Fishing Settings")]
     public class FishingSettings : ScriptableObject

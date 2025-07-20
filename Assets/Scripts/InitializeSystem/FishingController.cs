@@ -2,7 +2,7 @@ using BiteSystem;
 using FishingStatesSystem;
 using InputHandlerSystem;
 using Minigame;
-using Settings;
+using ProjectSerializebleDataObjects;
 using UnityEngine;
 
 namespace InitializeSystem
