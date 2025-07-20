@@ -1,31 +1,33 @@
+using Events;
+using FloaterSystem;
 using UnityEngine;
-using Float;
+using UnityEngine.Serialization;
 
-namespace Core
+namespace InitializeSystem
 {
     public class FishingActions : MonoBehaviour
     {
-        [Header("References")]
-        public FloatController floatController;
+        [FormerlySerializedAs("floatController")] [Header("References")]
+        public FloaterController floaterController;
 
         [HideInInspector] public FishingController Controller;
 
         public void Initialize(FishingController controller)
         {
             Controller = controller;
-            floatController.SetInitialPosition();
+            floaterController.SetInitialPosition();
         }
 
         public void Cast()
         {
             Debug.Log("Cast called");
-            floatController.MoveToWater();
-            FishingEvents.RaiseOnCast();
+            floaterController.MoveToWater();
+            FishingEventsBank.RaiseOnCast();
         }
 
         public void ReturnFloat()
         {
-            floatController.MoveToHand();
+            floaterController.MoveToHand();
         }
     }
 }

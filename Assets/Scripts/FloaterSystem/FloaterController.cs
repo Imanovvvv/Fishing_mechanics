@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace Float
+namespace FloaterSystem
 {
-    public class FloatController : MonoBehaviour
+    public class FloaterController : MonoBehaviour
     {
         [SerializeField] private Transform holdPoint;   // Точка в руке
         [SerializeField] private Transform waterPoint;  // Точка на воде

@@ -1,13 +1,16 @@
-using UnityEngine;
 using System.Collections;
-using Core.States;
+using InitializeSystem;
+using Settings;
+using UnityEngine;
 
-namespace Core
+namespace FishingStatesSystem
 {
-    public class MinigameState : FishingStateBase
+    public class MinigameState : StateBase
     {
-        public MinigameState(StatesController controller, FishingActions actions, FishingInput input) 
-            : base(controller, actions, input) { }
+        public MinigameState(StatesController controller, FishingActions actions, FishingSettings fishingSettings)
+            : base(controller, actions, fishingSettings)
+        {
+        }
 
         public override void Enter()
         {
@@ -17,17 +20,16 @@ namespace Core
 
         private IEnumerator PlayMinigame()
         {
-            float duration = 2f;
             float elapsed = 0f;
 
-            while (elapsed < duration)
+            while (elapsed < fishingSettings.MinigameDuration)
             {
                 elapsed += Time.deltaTime;
                 yield return null;
             }
 
             bool isSuccess = true; // Можно потом сделать логику успеха с input
-            controller.SetState(new ResultState(controller, actions, isSuccess, input));
+            controller.SetState(new ResultState(controller, actions, isSuccess, fishingSettings));
         }
     }
 }
