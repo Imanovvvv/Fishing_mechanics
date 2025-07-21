@@ -29,7 +29,8 @@ namespace FishingStatesSystem
             }
 
             bool isSuccess = true; // Можно потом сделать логику успеха с input
-            controller.SetState(new ResultState(controller, actions, isSuccess, fishingSettings));
+            controller.GetResultSuccessAndReset(isSuccess);
+            controller.SetState(FishingStates.Result);
         }
     }
 }

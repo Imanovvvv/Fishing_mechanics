@@ -19,9 +19,9 @@ namespace InitializeSystem
         private void Start()
         {
             _biteController = new BiteController();
-            _stateController = new StatesController(MinigameController, _biteController, FishingSettings);
+            _stateController = new StatesController(MinigameController, _biteController, FishingSettings, Actions);
             Actions.Initialize(this);
-            _stateController.SetState(new IdleState(_stateController, Actions, FishingSettings));
+            _stateController.SetState(FishingStates.Idle);
         }
 
         private void Update()

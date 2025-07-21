@@ -24,7 +24,7 @@ namespace FishingStatesSystem
 
         private void OnBite()
         {
-            controller.SetState(new BiteState(controller, actions, fishingSettings));
+            controller.SetState(FishingStates.Bite);
         }
     }
 }

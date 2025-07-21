@@ -21,7 +21,7 @@ namespace FishingStatesSystem
         private IEnumerator CastingDelay()
         {
             yield return new WaitForSeconds(fishingSettings.CastingDelayTime);
-            controller.SetState(new WaitingState(controller, actions, fishingSettings));
+            controller.SetState(FishingStates.Waiting);
         }
     }
 }

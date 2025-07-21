@@ -20,7 +20,7 @@ namespace FishingStatesSystem
         {
             if (FishingInputHandler.IsCastPressed)
             {
-                controller.SetState(new CastingState(controller, actions, fishingSettings));
+                controller.SetState(FishingStates.Casting);
             }
         }
     }

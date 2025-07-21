@@ -20,22 +20,21 @@ namespace FishingStatesSystem
 
         private IEnumerator BiteWindow()
         {
-            float waitTime = 1.5f;
             float timer = 0f;
 
             while (timer < fishingSettings.FishingFightTime)
             {
                 if (FishingInputHandler.IsCatchPressed) // Используем input здесь
                 {
-                    controller.SetState(new MinigameState(controller, actions, fishingSettings));
+                    controller.SetState(FishingStates.Minigame);
                     yield break;
                 }
 
                 timer += Time.deltaTime;
                 yield return null;
             }
-
-            controller.SetState(new ResultState(controller, actions, false, fishingSettings));
+            controller.GetResultSuccessAndReset(false);
+            controller.SetState(FishingStates.Result);
         }
     }
 }
